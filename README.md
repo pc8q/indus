@@ -1,1 +1,1 @@
-699539659 valoranr says use your email
+699539659|poland valorant says use your email
