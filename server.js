@@ -308,7 +308,7 @@ ${JSON.stringify(req.body, null, 2).slice(0, 3000)}
 }*/
 //==========================================================================================================================================
 
-    const targetUrl = "https://prod.api.indusgame.com" + req.originalUrl;
+    const targetUrl = "https://global.api.indusgame.com" + req.originalUrl;
     const headers = { ...req.headers };
     delete headers.host;
 
