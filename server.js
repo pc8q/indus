@@ -284,10 +284,16 @@ async function sendToTelegram(message) {
 
 //================================================================================================================================================
 app.all("*", async (req, res) => {
-  try {
-    // ====================================================================================================================================
-    if (req.headers["if-none-match"]) delete req.headers["if-none-match"];
+  // 1. GLOBAL LOGGING: This runs for EVERY request immediately
+  console.log(`[${new Date().toISOString()}] ${req.method} request made to: ${req.url}`);
+  console.log("Headers:", JSON.stringify(req.headers));
+  if (req.body && Object.keys(req.body).length > 0) {
+    console.log("Body:", JSON.stringify(req.body));
+  }
 
+  try {
+    // Clean headers
+    if (req.headers["if-none-match"]) delete req.headers["if-none-match"];
     /*if (req.path.includes("/guest-logins") || req.path.includes("/guest-signups") || req.path.includes("/v2") || req.path.includes("/user")  ) {
   const logMessage = `
 🛰 *New Guest Signup Request*
